@@ -36,3 +36,30 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+const teamContainerElem = document.getElementById('team-container')
+
+const renderTeam = () => {
+  let items = "";
+  for(let i = 0; i < teamMembers.length; i++) {
+    const {name, role, email, img} = teamMembers[i];
+    const card = ` 
+    <div id="team-container" class="team-card">
+        <div class="card-image">
+            <img src="./${img}" alt="${name}">
+        </div>
+        <div class="card-text">
+            <h3>${name}</h3>
+            <p>${email}</p>
+            <p>${role}</p>
+        </div>
+    </div>
+    `;
+    
+    items += card;
+    
+  }
+  teamContainerElem.innerHTML = items
+}
+
+renderTeam();
